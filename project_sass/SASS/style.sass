@@ -1,0 +1,166 @@
+//для того чтобы импортировать файлы в sass мы пишем @import "путь к фаилу" 
+//переменные
+$bgc: blue
+$a : 5
+// mixin  это шаблон в котором можно поставить
+//стиль или несколько стилей и потом использовать как переменную
+//в sass  миксин обиявляется знаком "=" а используется  с знаком "+" 
+//а в scss обьявляется с "@mixin" а используется с "@include" 
+// если установить параметру $color:"стиль" blue то
+// blue будет значением по умолчанию и если когда мы будем
+// использовать этот mixin в место значения color мы ничего 
+//не поставим он автоматически использует значение по умолчанию то есть blue  
+=exp($fontw,$size,$color: blue)
+    color: $color
+    font-size: $size
+    font-family: Arial, Helvetica, sans-serif
+    position: absolute
+    font-weight: $fontw
+    @content
+// content позволяет добавить в mixin дополнительные стили только
+// в определённый раз когда мы используем mixin а не всегда
+// используя $marg"..." мы можем передовать одному параметру несколтко значениё
+=margin($marg...)
+    margin: $marg
+//в sass мы можем делать операции  например (+,-,*,/) 
+//но нужно сохронять единицы измерения проценты к процентам пиксели к пикселям
+=ope($cols,$margin)
+    float: left
+    background-color: #ce3d3d
+    margin-right:$margin
+    margin-bottom: $margin
+    height: 100px
+    width: ((100% - (($cols - 1) * $margin)) / $cols)
+    border-radius: 0px
+    &:nth-child(#{$cols}n)
+        margin-right: 0px
+// это if(если),else(иначе),else if(иначе если) в sass
+=conditions
+    @if $a >= 6
+        background-color: #261246
+        width: 100px
+        height: 100px
+    @else if $a <= 4
+        background-color: #198d0f
+        width: 50px
+        height: 50px
+    @else
+        background-color: #0730a3
+        width: 25px
+        height: 25px
+//-------------------------------------------
+// each в sass
+$sizes: 40px, 50px, 80px
+
+@each $size in $sizes
+  .icon-#{$size}
+    font-size: $size
+    height: $size
+    width: $size
+//for в sass если ставим "to" то последние число не учитывается 
+//а если ставим "through" то последние число ичитывается
+$someVar: some_class
+@for $i from 24 to 29
+    .#{$someVar}-#{$i}
+        width: 50px + $i
+        height: 50px + $i
+//while в sass
+@function scale-below($value, $base, $ratio: 1.618)
+  @while $value > $base
+    $value: $value / $ratio
+  @return $value
+
+
+
+$normal-font-size: 16px
+.sup
+  font-size: scale-below(20px, 16px)
+//------------------------------------------- 
+//раскоментировать 'not' чтобы раскрыть пример с операторами      
+div //:not
+    height: 100px
+    width: 100px
+    border: 1px solid black
+    background-color: red
+    margin-right: 30px
+    display: inline-block
+// в scss синтаксис следуйший:
+//divs {
+//    height: 100px;
+//    width: 100px;
+//    border: 1px solid black;
+//    background-color: red;
+//    margin-right: 30px;
+//    display: inline-block;
+//}
+//--------------------------------------------
+//ставим стили div у которого нет класса first 
+div:not(.first)
+    height: 110px
+.first
+    background-color: $bgc
+//расскомментируй '#grid' для примера с операторами 
+//#grid
+//    float: left
+//    width: 100%
+//    > div
+//        +ope(3,2%)
+//--------------------------------------------
+//* - устанавливает стиль всем элементам   
+*
+    border-radius: 50%
+//вложенные стили
+div .second
+        background-color: green
+        width: 50px
+        height: 50px
+        position: absolute
+        margin-left: 25px
+        margin-top: 25px
+        &:hover
+            background-color: darken(green,5%)
+// выше показана  как вызываются функции пишем стиль потом название функции
+// и в скобочках атрибуты которые она принимает
+// на сайте sasslang в разделе документация представлены все функции и что они делают
+//--------------------------------------------
+//можно делать вложенные стили и так и так
+//div 
+//  .second
+//      background-color: green
+//      width: 50px
+//      height: 50px
+//      position: absolute
+//      margin-left: 25px
+//      margin-top: 25px 
+// в первом случаи он берет только те теги a которые находятся в тег(е/ах) p
+div div p a
+    color: white
+// а во втором он берет только те теги a которые находятся 
+//сразу внутри тега div без тех которые находится еще и внутри тегов p
+div div a
+    color: yellow
+// 1 вариант нужно саблюдать последовательность
+.exp
+    +exp(bold,40px)
+    +margin(30px 40px)
+// 2 вариант не нужно саблюдать последовательность
+//.exp
+//    +exp($size: 40px,$fontw: bold)
+.pseudo
+    +exp(bold,30px,gray)
+    +margin(30px 40px)
+    &:hover
+        color: black
+//в sass псевдоклассы можно писать как выше или
+//как обычно
+//.pseudo:hover
+//    color: black
+#condition
+    +conditions
+#cont
+    +exp(bold,20px,#261246)
+        position: relative!important
+        left: 50px
+
+
+    

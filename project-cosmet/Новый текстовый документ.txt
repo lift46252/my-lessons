@@ -1,0 +1,160 @@
+
+<base href="[[++site_url]]">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name='description' content='[[*description]]'/>
+<title>[[*longtitle]]</title>
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/">
+<link rel="apple-touch-icon" sizes="72x72" href="/">
+<link rel="apple-touch-icon" sizes="114x114" href="/">
+<link rel='dns-prefetch' href="https://maxcdn.bootstrapcdn.com/" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;    
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel="stylesheet" id="wp-block-library-css" href="/assets/style.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="contact-form-7-css" href="/assets/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" id="sb_instagram_styles-css" href="/assets/sb-instagram.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="gt3_default_style-css" href="/assets/style.css" type="text/css" media="all">
+    <link rel="stylesheet" id="gt3_photo_modules-css" href="/assets/photo_modules.css" type="text/css" media="all">
+    <link rel="stylesheet" id="gt3_theme-css" href="/assets/theme.css" type="text/css" media="all">
+    <link rel="stylesheet" id="gt3_responsive-css" href="/assets/responsive.css" type="text/css" media="all">
+    <link rel="stylesheet" id="gt3_custom-css" href="/assets/saved_resource.css" type="text/css" media="all">
+    <link rel='stylesheet' id='animate-css-css' href='/assets/animate.min.css' media='all' />
+    <link rel="stylesheet" href="/assets/show_only_css.css">
+    <link rel="stylesheet" id="js_composer_front-css" href="/assets/js_composer.min.css" type="text/css" media="all">
+    <script type="text/javascript" src="/assets/jquery.js"></script>
+    <script type="text/javascript" src="/assets/jquery-migrate.min.js"></script>
+
+    <script type="text/javascript" src="/assets/waypoint.js"></script>
+
+    <style>
+        #callnowbutton {
+            display: none;
+        }
+        
+        @media screen and (max-width:650px) {
+            #callnowbutton {
+                display: block;
+                position: fixed;
+                text-decoration: none;
+                z-index: 2147483647;
+                width: 100%;
+                left: 0;
+                bottom: 0;
+                height: 60px;
+                border-top: 1px solid #ffbdde;
+                border-bottom: 1px solid #c95e7f;
+                text-shadow: 0 1px #c95e7f;
+                text-align: center;
+                color: #fff;
+                font-weight: 600;
+                font-size: 120%;
+                overflow: hidden;
+                padding-right: 20px;
+                background: #fb90b1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            body {
+                padding-bottom: 60px;
+            }
+            #callnowbutton img {
+                transform: scale(1);
+            }
+        }
+        
+        #callnowbutton .NoButtonText {
+            display: none;
+        }
+    </style>
+    <style type="text/css">
+        .recentcomments a {
+            display: inline !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    </style>
+
+    </style>
+    <style type="text/css" data-type="vc_shortcodes-custom-css">
+        .vc_custom_1522315484246 {
+            background-image: url(/assets/bg_services_01-1.jpg) !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+        
+        .vc_custom_1523344176060 {
+            background-image: url(/assets/call_to_action.jpg) !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+        
+        .vc_custom_1519393801789 {
+            padding-top: 0px !important;
+        }
+        
+        .vc_custom_1522221334236 {
+            margin-bottom: -7px !important;
+            padding-bottom: 0px !important;
+        }
+        
+        .vc_custom_1522663195400 {
+            margin-bottom: 28px !important;
+        }
+        
+        .vc_custom_1522221799046 {
+            margin-bottom: -7px !important;
+            padding-bottom: 0px !important;
+        }
+        
+        .vc_custom_1564965168182 {
+            padding-right: 4.4% !important;
+            padding-left: 4.4% !important;
+        }
+        
+        .vc_custom_1560804212501 {
+            border-top-width: 0px !important;
+            border-right-width: 0px !important;
+            border-bottom-width: 0px !important;
+            border-left-width: 0px !important;
+            padding-right: 0px !important;
+            padding-left: 0px !important;
+        }
+    </style>
+    <noscript>
+        <style type="text/css">
+            .wpb_animate_when_almost_visible {
+                opacity: 1 !important;
+            }
+        </style>
+    </noscript>
+<style> .jGrowl-notification p, .jGrowl-message {color:white}</style>	
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155638730-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-155638730-1');
+</script>
+
+

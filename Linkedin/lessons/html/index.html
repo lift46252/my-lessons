@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html</title>
+</head>
+<body>
+    <header>
+        <nav style="background-color: navy; ">
+            <ul style="display: flex; width: 100%;padding: 20px;">
+                <li style="margin-right: 20px; list-style-type: none;"><a href="./index.html" style="color: white; font-weight:bolder;font-size:24px ;text-decoration:none;text-transform: uppercase;">html</a></li>
+                <li style="margin-right: 20px; list-style-type: none;"><a href="./css.html" style="color: white; font-weight:bolder;font-size:24px ;text-decoration:none;text-transform: uppercase;">css</a></li>
+                <li style="margin-right: 20px; list-style-type: none;"><a href="./js.html" style="color: white; font-weight:bolder;font-size:24px ;text-decoration:none;text-transform: uppercase;">js</a></li>
+            </ul>
+        </nav>
+    </header>
+    <p>это параграф текст <em>выделеный текст</em></p>
+    <h1>заголовок</h1>
+    <article>
+        <h1>this is a headline</h1>
+        <p>this is 1 paragraph</p>
+        <p>this is 2 paragraph</p>
+        <p>this is 3 paragraph</p>
+    </article>
+    <h1>заголовок 1</h1>
+    <h2>заголовок 2</h2>
+    <h3>заголовок 3</h3>
+    <h4>заголовок 4</h4>
+    <h5>заголовок 5</h5>
+    <h6>заголовок 6</h6>
+    <!--
+        <> - отк(в начале текста )
+        </> - закр(после текста)
+        теги можно вложить в другие теги 
+        dom (tree) - document object model tree  - по сути семейное дерево кто с кем связан
+    -->
+    <i> Элемент I используется для применения только к визуальному курсиву,</i> 
+    <!--
+        Элемент I используется для применения только к визуальному курсиву,
+    -->
+    <br><br>
+    <em>в то время как элемент em используется для выделения чего-либо.</em>
+    <!--
+        в то время как элемент em используется для выделения чего-либо.
+    -->
+    <br><br>
+    <strong> strong -передает важность, серьезность, срочность. Мы должны использовать это, чтобы означать, эй, это должно быть сильным. Как и акцент, он передает смысл</strong>
+    <!--
+        передает важность, серьезность, срочность. Мы должны использовать это, чтобы означать, эй, это должно быть сильным. Как и акцент, он передает смысл
+    -->
+    <br><br>
+    <b>Элемент b похож на элемент I. Это общий, нейтральный, 
+        это ничего не значит. Это просто дает нам возможность пометить
+         что-то, чтобы оно могло быть выделено жирным шрифтом. 
+         Там нет никакого смысла альтернативного голоса или настроения.</b>
+    <!--
+        Элемент B похож на элемент I. Это общий, нейтральный,
+         это ничего не значит. Это просто дает нам возможность пометить
+          что-то, чтобы оно могло быть выделено жирным шрифтом. 
+          Там нет никакого смысла альтернативного голоса или настроения.
+    -->
+        <!--
+        это важно для тех кто слушает контент потому что при прослушивании em,strong подчеркнёт это слово а i,b нет
+    -->
+    <h1>списки</h1>
+    <div style="display: flex;justify-content: space-around;">
+        <div style="flex: 2;">
+            <h3>неупорядоченный список</h3>
+            <ul>
+                <li>элемент списка номер 1</li>
+                <li>элемент списка номер 2</li>
+                <li>элемент списка номер 3</li>
+                <li>элемент списка номер 4</li>
+                <li>элемент списка номер 5</li>
+                <li>элемент списка номер 6</li>
+            </ul>
+        </div>
+        <div style="flex: 2;">
+            <h3>упорядоченный список</h3>
+            <ol>
+                <li>элемент списка номер 1</li>
+                <li>элемент списка номер 2</li>
+                <li>элемент списка номер 3</li>
+                <li>элемент списка номер 4</li>
+                <li>элемент списка номер 5</li>
+                <li>элемент списка номер 6</li>
+            </ol>
+        </div>
+        <div style="flex: 2;">
+            <h3>описываюший список</h3>
+            <dl>
+                <dt>что-там</dt>
+                <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore pariatur, repellat deleniti dignissimos natus quaerat eaque nemo, veniam placeat corrupti dolores, perspiciatis iure eos maxime. Fugit, adipisci aspernatur! Esse, dolore!</dd>
+            </dl>
+        </div>
+    </div>
+    <!--
+        Для того, чтобы неупорядоченный список, мы используем
+элемент - ul
+Ol - обозначает упорядоченный список, что означает, что есть порядок для элементов в списке. Допустим, мы разрабатываем рецепт. Это шаги в направлениях, каждый из которых помечен как
+элемент.
+dl - описываюший список
+li - list item
+    -->
+<h1>цитаты</h1>
+<blockquote>
+    <h2>Lorem, ipsum dolor.</h2>
+    <p>Lorem <q>ipsum dolor sit amet, consectetur adipisicing elit.</q> Labore pariatur, repellat deleniti dignissimos natus quaerat eaque nemo, veniam placeat corrupti dolores, perspiciatis iure eos maxime. Fugit, adipisci aspernatur! Esse, dolore!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore pariatur, repellat deleniti dignissimos natus quaerat eaque nemo, veniam placeat corrupti dolores, perspiciatis iure eos maxime. Fugit, adipisci aspernatur! Esse, dolore!</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore pariatur, repellat deleniti dignissimos natus quaerat eaque nemo, veniam placeat corrupti dolores, perspiciatis iure eos maxime. Fugit, adipisci aspernatur! Esse, dolore!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore pariatur, repellat deleniti dignissimos natus quaerat eaque nemo, veniam placeat corrupti dolores, perspiciatis iure eos maxime. Fugit, adipisci aspernatur! Esse, dolore!</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore pariatur, repellat deleniti dignissimos natus quaerat eaque nemo, veniam placeat corrupti dolores, perspiciatis iure eos maxime. Fugit, adipisci aspernatur! Esse, dolore!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore pariatur, repellat deleniti dignissimos natus quaerat eaque nemo, veniam placeat corrupti dolores, perspiciatis iure eos maxime. Fugit, adipisci aspernatur! Esse, dolore!</p>
+    <cite>lorem,ipsum.</cite>
+</blockquote>
+<!--
+    cite - кто написал цитату
+    blockquote - тело цитаты
+    q - ковычки
+-->
+<h1>время</h1>
+<time>14:04</time>
+<br>
+<time>12.06.20</time>
+<br>
+<time>12 june 2020</time>
+<br>
+<time datetime="2020-06-12">today </time>
+<!--
+    data time - format of time for machine 
+-->
+<h1>code and br</h1>
+<code>
+    background-color:red;
+    <br>
+    color:red;
+    <br>
+    background-size:cover;
+    <br>
+    background-image:url();
+</code>
+<!--
+    code - код внутри этого тега выгледит как код
+    br - какентер в ворж переход наследуйший ряд
+    pre - если обернуть в этот тег текст он будет браузер будет учитывать все пробелы
+    если зотим в code писать html используем "&lt;" для "<" и "&gt;" для > и "&amp;" для & о других на (W3C)
+-->
+<h1>верхний нижний индекс small</h1>
+<p>lorem ipsum<sub>55</sub></p>
+<p>lorem ipsum<sup>55</sup></p>
+<small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, nobis.</small>
+<!--
+    sub - нижний индекс
+    sup - верхний индекс
+    small  - маленкий и по шрифту текст, который имеет небольшое значение.
+-->
+<!--
+    class- Это дает нам возможность прикрепить повторно используемое имя к любому элементу.
+    Таким образом, мы можем обратиться к этому имени в нашем CSS и применить
+    стилизацию ко всем элементам, которые имеют этот класс
+
+    id -  Идентификатор еще один популярный, он похож на класс, 
+    но мы можем использовать уникальные имена только один раз
+    на всей HTML-странице. Вы можете использовать идентификатор 
+    для таргетинга CSS, но он гораздо более конкретен,
+    и это может быть проблемой. Поэтому в большинстве случаев разработчики
+    CSS склонны придерживаться классов. Идентификаторы особенно полезны
+    для адресации отдельных элементов с помощью JavaScript или с помощью
+    целевой ссылки. Тот факт, что когда-либо будет только один элемент
+    с каким-либо конкретным идентификатором, становится полезным при
+    взаимодействии с JavaScript или ссылками. 
+    
+    Независимо от варианта использования, атрибуты class и ID 
+    дают нам возможность называть определенные элементы HTML
+    и ссылаться на них в других частях кода.
+
+    comtenteditable- позволяет посетителю на странице
+    редактировать контент этой страницы
+
+    Атрибут Lang дает нам возможность указать браузеру, 
+    на каком языке находится контент. LANG = и краткий код языка.
+    Атрибут dir дает нам возможность явно указать браузеру,
+    в каком направлении течет текст. DIR обозначает направление.
+    DIR = LTR для скриптов, которые запускаются слева направо 
+    и DIR = RTL для справа налево
+    
+    accesibility tree - это то, что вспомогательные устройства используют для обеспечения удобства работы веб-сайта с помощью программы чтения с экрана. 
+    aris-label - значение которая увидит программа чтения с экранна
+    role - назначение элемента которая увидит программа чтения с экранна
+    aria-hidden==true - удаляет этот элемент и все его дочерние элементы
+     из дерева доступности. Это все еще в дереве DOM. 
+     Но для вспомогательных устройств это ушло.
+     &nbsp; - пробел который не даст браузеру сделать перевод сроки в это месте
+-->
+<!--
+    nav - для навигациий по сайту (меню навигаций)
+-->
+<!--
+    footer - нижняя часть сайта
+-->
+<a href="#">ссылка в теге 'a' и с атрибутом ' href ' <br> указываюший куда она должна на отправить</a>
+<h1>media content</h1>
+<br>
+<!--
+Это написано как IMG. И затем есть четыре атрибута, 
+которые мы хотим включить в каждый элемент изображения.
+ Атрибут источника, сокращенный до SRC. Атрибут alt, ALT.
+  И атрибуты ширины и высоты. Каждое изображение должно иметь все четыре
+srcset="" - если надопоставить изображение в разном качестве для разных дисплеев 
+пишем этот атрибут url foto разрешения экрана (2x,3x,4x,1x)или[480w,960w,1440w,1920w],
+если хотим добавить еще фото ставим запятую и снова
+ url foto разрешения экрана (2x,3x,4x,1x)или[480w,960w,1440w,1920w]
+ sizes="" - позволяет установить размер кортинки для определеного размера экрана пишется так ка показоно ниже
+-->
+<figure>
+    <picture>
+        <source media="(min-width:600px)" srcset="https://i.pinimg.com/originals/ef/7f/b1/ef7fb1b37078b6a2aef8e40710446bfa.jpg">
+            <source  srcset=" https://i.pinimg.com/originals/86/ff/b8/86ffb87572d657f335cd7cd828c70de3.jpg">
+        <img src="https://i.pinimg.com/originals/ef/7f/b1/ef7fb1b37078b6a2aef8e40710446bfa.jpg" alt="kjshfgd" width="400px"> 
+    </picture>
+    <figcaption>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br> Culpa architecto fugiat, ad iure ut eius omnis in maxime! Fugiat, corporis!</figcaption>
+</figure>
+<!--
+    figure - сюда мы ставим картинку
+    figcaption - сюда её описание текст который мы хотим к ней добавить
+    figure  - показывает что между картинкой и тем что есть в figcaption есть какая-то связь
+-->
+<br>
+<div>
+    <div style="width: 100%;justify-content: center;display: flex;">
+        <img src="https://i.pinimg.com/originals/ef/7f/b1/ef7fb1b37078b6a2aef8e40710446bfa.jpg" alt="kjshfgd" 
+srcset="https://i.pinimg.com/originals/ef/7f/b1/ef7fb1b37078b6a2aef8e40710446bfa.jpg 480w,
+        https://i.pinimg.com/originals/86/ff/b8/86ffb87572d657f335cd7cd828c70de3.jpg 960w,
+        https://i.pinimg.com/originals/ef/7f/b1/ef7fb1b37078b6a2aef8e40710446bfa.jpg 1440w,
+        https://i.pinimg.com/originals/86/ff/b8/86ffb87572d657f335cd7cd828c70de3.jpg 1920w" 
+sizes="(max-width: 480px) 50vw,
+        (max-width: 960px) 60vw,
+        (max-width: 1440px) 70vw,
+        (min-width: 1920px) 80vw
+        ">
+    </div>
+    <div style="justify-content: center;display:flex">
+        <h3><i>Beautiful music for beautiful image</i></h3>
+    </div>
+    <div style="justify-content: center;display: flex;">
+        <audio autoplay controls src="../audio/Cartoon.mp3" loop style="outline: none;"></audio>
+    </div>
+    <br>
+    <div style="justify-content: center;display: flex;">
+        <video controls width="80%">
+            <source src="../video/Cartoon.webm" type="video/webm">
+            
+            <track kind="subtitles" label="english" srclang="en" src="../subtitles/Cartoon.srt">
+        </video>
+    </div>
+    <div style="justify-content: center;display: flex;">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/K4DyBUG242c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+<!--
+    {
+        loop - атрибут который делает чтобы песня играла по циклу
+    autoplay - атрибут который делает чтобы песня играла как только страница загрузится
+    controls - добавляет элементы управления воспроизвидением
+    src - атрибут куда пишем источник путь файла где он находится
+    source - тег куда пишем источник путь файла где он находится
+    type - тип файла
+    <audio controls>
+        <source>
+        <source>
+        your browser is very old
+    </audio> = так стоит писать если мы хотим добавитьеще один аудио формат для старых браузеров браузер будет брать первый который поддерживается
+} =тоже самое и для видео только вместо <audio></audio> ставим <video></videp>
+-->
+<!--
+    чтобы добавить субтитры ставим тег track внутри video илаём ему атрибут src
+    kind="subtitles" - сообщаем браузеру что это субтитры
+    label="надпись которая будет в браузере
+     для выбора обычно ставится язык(english,russian,romanian...)"
+     srclang - чтобы показать какой язык (en,ru,ro...)
+     default - по умолчанию
+
+     kind может иметь 5 значений
+     subtitles - Субтитры	Предназначены для дублирования звуковой дорожки фильма в виде текста на языке оригинала для глухих людей. Также могут содержать перевод на другие языки для тех, кто не знаком с языком оригинала. Текст субтитров выводится поверх видео.
+captions - Заголовки	Дублирование диалогов, звуковых эффектов, музыкального сопровождения в виде текста для тех случаев, когда звук недоступен или для глухих пользователей. Выводится поверх видео, при этом помечается, что подходит для плохо слышащих людей.
+descriptions - Описание	Звуковое описание происходящего в видео для тех случаев, когда изображение недоступно или для слепых людей.
+chapters - Главы	Названия глав используемые для быстрой навигации по видео или аудио. Отображаются в виде списка.
+metadata - Метаданные	Предназначены для использования скриптами и не отображаются в браузере.
+-->
+<br>
+<!--
+    dir="(ltr или rtl)" - говорит как идет текст справа на лево или слево на право
+    charset - говорит какая база символов используется обычно это UTF-8
+-->
+<!--
+    формы
+
+    label - сюда пишим текст
+    input - поле ввода или кнопка взависимости от заданого параметра
+    чтобы связать одно с другим мы можем либо паставить input в label либо дать input id 
+    а label атрибут "for" с значением одинаковым id input
+    есть type="email" - который автоматом проверяет чтобы это был иммено email
+    placeholder - Выводит текст внутри поля формы, который исчезает при получении фокуса.(нажатии на поле)
+    tel - телефон
+    search - поиск
+    password - пароль
+    required - делает поле обезательным для заполнения
+    text-area - большое поле обычно для комментариев
+    cols - сколько колонок зпнимает поле
+    rows - сколько рядов зпнимает поле
+    date - тип для дат
+    color - тип для цвета
+    file - тип для файлов
+-->
+</body>
+</html>

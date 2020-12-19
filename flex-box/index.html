@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex box</title>
+    <style>
+        @media(min-width: 500px){
+            /* @media - это значит что стили будут работать
+             только пока условие в скобках истино*/
+        .container-1 div{
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .container-1{
+            display: flex;
+            align-items: stretch;
+            /*div имеет подстраивает высоту под контент
+            и прижимает их ( к верху (flex-start)
+            еще может быть к низу(flex-end) и к середине(center)
+            и значение по умолчанию (stretch) */
+            flex-direction: row;
+            /* column - в колонки и растягивает на всю ширину если она не прописана
+             row - в ряд
+            column-reverse - тоже что и column только изменяет порядок 
+            делает его наоборот(например 1,2,3=3,2,1)
+            row-reverse - тоже что и row только изменяет порядок 
+            делает его наоборот(например 1,2,3=3,2,1) */
+        }
+        .box-1{
+            flex: 2;
+            /* с помошью flex 1,2,3... мы мошем поставить 
+            в сколько раз тот или иной блок будет больше*/
+            order: 2;
+        }
+        .box-2{
+            flex: 2;
+            order: 1;
+            /* order  устанавливает в каком порядке будут box*/
+        }
+        .box-3{
+            flex: 1;
+            order: 3;
+        }
+    }
+        .container-2 div{
+                border: 1px solid black;
+                padding: 10px;
+            }
+            .container-2{
+                display: flex;
+                justify-content: space-between;
+                /*flex-start - слева flex-end - справа center - по цен
+                space-around- тоже по центру но с  одинакавами отступами
+                space-between = space-around только без первово и последнего отступа 
+                располагает по всей ширине экрана а не по середине
+                слева и справа и ставит отступы
+                с помошью justify-content мы можем расположить div так как нам удобно*/
+                flex-wrap: wrap;
+                /* если мы хотим чтобы при уменьшении экрана какой та div 
+                переносился на новую строку используем flex-wrap
+                wrap - переносить
+                wrap-reverse - переносить в обратном порядке
+                nowrap - не переносить
+                */
+
+            }
+            .box{
+                flex-basis: 20%;
+                /* flex-basis = width но только для * flex-box
+                *в принципе можно использовать и то ито но для flex-box лучше flex-basis */
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container-1">
+        <div class="box-1">
+            <h3>
+                box-1
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem provident assumenda similique modi alias reiciendis itaque, voluptates, unde temporibus, quam corrupti excepturi autem quidem ducimus blanditiis aliquam nobis voluptate officia.</p>
+            </h3>
+        </div>
+        <div class="box-2">
+            <h3>
+                box-2
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium aspernatur, cum facere dolor veniam iure optio consequatur iusto asperiores rerum magnam aliquam beatae dolorum blanditiis quae ipsam sed. Nam, totam!</p>
+            </h3>
+        </div>
+        <div class="box-3">
+            <h3>
+                box-3
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At dolorem repudiandae voluptatem totam similique id dolores commodi, quibusdam expedita nihil minus beatae fuga asperiores, inventore voluptates harum labore assumenda consectetur.</p>
+            </h3>
+        </div>
+    </div>
+    <div class="container-2">
+        <div class="box">
+            <h3>
+                box-1
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem provident assumenda similique modi alias reiciendis itaque, voluptates, unde temporibus, quam corrupti excepturi autem quidem ducimus blanditiis aliquam nobis voluptate officia.</p>
+            </h3>
+        </div>
+        <div class="box">
+            <h3>
+                box-2
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium aspernatur, cum facere dolor veniam iure optio consequatur iusto asperiores rerum magnam aliquam beatae dolorum blanditiis quae ipsam sed. Nam, totam!</p>
+            </h3>
+        </div>
+        <div class="box">
+            <h3>
+                box-3
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At dolorem repudiandae voluptatem totam similique id dolores commodi, quibusdam expedita nihil minus beatae fuga asperiores, inventore voluptates harum labore assumenda consectetur.</p>
+            </h3>
+        </div>
+        <div class="box">
+            <h3>
+                box-3
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At dolorem repudiandae voluptatem totam similique id dolores commodi, quibusdam expedita nihil minus beatae fuga asperiores, inventore voluptates harum labore assumenda consectetur.</p>
+            </h3>
+        </div>
+    </div>
+</body>
+</html>

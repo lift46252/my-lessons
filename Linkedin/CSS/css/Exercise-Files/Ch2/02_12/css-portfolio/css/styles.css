@@ -1,0 +1,20 @@
+img {
+  width: 300px;
+}
+body{
+  color: #343434;
+}
+header{
+  background-color: #2f3061;
+  color: #f2fff7;
+}
+.projects{
+  background-color: #F7FFF7;
+}
+.work-experience{
+  background-color: #A1C6D7;
+}
+footer{
+  background-color: #343434;
+  color: #f2fff7;
+}

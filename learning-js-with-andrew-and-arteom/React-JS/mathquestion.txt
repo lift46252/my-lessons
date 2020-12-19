@@ -1,0 +1,95 @@
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+let question = prompt('Представьте яблоко , представили ? Какого оно цвета (ответ напишите на английском языке и если есть несколько слов пишите без пробелов "-" и тд.) ','yellow');
+let bgColor ;
+if (question == null) {
+  bgColor = "blue";
+}else{
+  bgColor = "" + question;
+}
+const passwordStyles = {
+  display: 'flex',
+  justifyContent: 'center',
+  height:'100%',
+  color:'white',
+  alignItems: 'center',
+  backgroundColor:  bgColor,
+},
+buttonStyles = {
+  margin:"0 auto",
+  padding: "25px 0px",
+  width: "25%",
+  backgroundColor: "#F9BF01",
+  color: "white",
+  border:"none",
+  borderRadius:"10px",
+  outline: "none",
+  fontSize: "20px"
+},
+allStyles = {
+  textAlign:"center",
+},
+pStyles = {
+  paddingTop: "20px",
+  width: "50%",
+  margin: "0 auto",
+  fontSize: "24px"
+}
+let yourNumber = 0;
+function App() {
+  if (bgColor == 'green') {
+    function answer() {
+      yourNumber = 0;
+      yourNumber = `${+(Number(prompt('Введите то что получилось :','')) - 35)}`;
+      if (yourNumber >= 10 && yourNumber <= 99){
+        document.getElementById('res').innerHTML = `Вы задуммали число : ${yourNumber}`;  
+      }else{
+        document.getElementById('res').innerHTML = `Вы задуммали неправильное число`;
+      }
+    }
+        /*   let xNumber = prompt('Введите 2 значное число :','');
+      xNumber = (((xNumber - xNumber % 10) / 10 ) * 2 + 5) * 5 + 10 + (xNumber % 10); */
+    let result = (
+    <div style={allStyles}>
+    <div style={passwordStyles}>
+        <div>
+          <h2>hello</h2>
+        </div>
+        <pre> </pre>
+        <div>
+          <h3>my dear friend</h3>
+        </div>
+      </div>
+        <div>
+            <div>
+              <p style={pStyles}>
+                Выберите двух значное число .Теперь умножтe число его десятков на 2, прибавьте к этому произведению число 5, умножте эту сумму на 5, к полученному произведению прибавьте 10 и число единиц того числа, которое задумали.
+                <b>(например у 16 число десятков равно 1 а единиц 6)</b>
+              </p>
+            </div>
+            <div>
+              <h1 id= "res"></h1>
+            </div>
+            <button style={buttonStyles} onClick={answer}>нажмите чтобы продолжить</button>
+        </div>
+    </div>
+    )
+    return result;
+  }else{
+      let result = (
+      <div style={passwordStyles}>
+      <div>
+        <h2>Sorry and bye</h2>
+      </div>
+      <pre> </pre>
+      <div>
+        <h3>my dear guest</h3>
+      </div>
+    </div>  
+      )
+      return result;
+  }
+}
+
+export default App;

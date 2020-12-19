@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue js</title>
+</head>
+<body>
+    <div><a href="./home.html"> Home</a></div>
+    <div id="app">
+        {{ message }}
+    </div>
+    <div id="app-2">
+        <span v-bind:title="message">
+          Наведи на меня курсор на пару секунд,
+          чтобы увидеть динамически связанное значение title!
+        </span>
+    </div>
+    <div id="app-3">
+        <!-- if и else == v-if="condition" v-else -->
+        <span v-if="seen">Сейчас меня видно</span>
+        <span v-else>Сейчас меня видно2</span>
+    </div>
+    <div id="app-4">
+        <ol>
+            <!-- for in только на vue == v-for="variable in array" -->
+          <li v-for="todo in todos">
+            {{ todo.text }}
+          </li>
+        </ol>
+    </div>
+    <div id="app-5">
+        <p>{{message}}</p>
+        <button @click='reverseMessage'>перевернуть сообшение</button>
+    </div>
+    <div id="app-6">
+        <p>{{message}}</p>
+        <input v-model='message'>
+    </div>
+    <div id="app-7">
+        <ol>
+            <!-- Создаём экземпляр компонента todo-item -->
+            <todo-item v-for='item in groceryList' v-bind:todo='item' v-bind:key='item.id'>todo-item</todo-item>
+        </ol>        
+    </div>
+    <div id="example">
+        <p>Изначальное сообщение:
+            <br>
+            <p style="white-space: pre-line;">{{ message }}</p>
+        </p>
+
+        <p>Сообщение задом наперёд:
+            <br>
+            <p style="white-space: pre-line;">{{ reversedMessage }}</p> 
+        </p>
+        <textarea v-model='message'></textarea>
+    </div>
+    <div id="components-demo">
+        <button-counter></button-counter>
+    </div>
+    <ul id="list">
+        <li v-for="(item, index) in items" :key="item.id" :index="index">
+            <!--
+                фильтры в vue обьявляются через "|" вот так: element (к которому нужно применить фильтр) | filters
+                можно добовлять несколько фильтров к одному элементу : element | filter |еще filter|еще filter ...
+            -->
+            {{parentMessage}}?{{index}}?{{item.message}}?{{item.message|toUpperCase}}?{{item.message|lowerCase}}
+        </li>
+        <comp-button></comp-button>
+        <!-- 
+            обработка событий в vue либо через "@event" либо через v-on:event
+            event передаётся в функцию через "$event" (это нужно когда например мы передаем еще аргумент помимо event)
+        -->
+        <button @click="greet($event,'Alex')">click to alert</button>
+        <button v-on:click="say('hi')">click to alert</button>
+        <p>{{fullName}}</p>
+    </ul>
+    <ul id="v-for-object" class="demo" style="list-style: none;">
+        <li v-for="(value,nmae,index) in object">
+            {{index + 1}}. |{{ value }}|{{nmae}}
+        </li>
+      </ul>
+    <div id="app-8">
+        <input v-model="message" placeholder="отредактируй меня">
+        <p>Введённое сообшение: {{ message }}</p>
+    </div>
+    <div id="app-9">
+        <input type="checkbox" id="jack" value="Джек" v-model="checkedNames">
+        <label for="jack">Джек</label>
+        <input type="checkbox" id="john" value="Джон" v-model="checkedNames">
+        <label for="john">Джон</label>
+        <input type="checkbox" id="mike" value="Майк" v-model="checkedNames">
+        <label for="mike">Майк</label>
+        <br>
+        <span>Отмеченные имена: {{ checkedNames }}</span>
+    </div>
+    <div id="app-10">
+        <input type="radio" id="one" value="Один" v-model="picked">
+        <label for="one">Один</label>
+        <br>
+        <input type="radio" id="two" value="Два" v-model="picked">
+        <label for="two">Два</label>
+        <br>
+        <span>Выбрано: {{ picked }}</span>
+    </div>
+    <!-- !!! V-MODEL ON SELECT !!!
+Если начальное значение выражения v-model не соответствует 
+ни одному из вариантов списка, элемент <select> будет отображаться 
+в «невыбранном» состоянии. В iOS это приведёт к тому, 
+что пользователь не сможет выбрать первый элемент, 
+потому что iOS не сгенерирует событие change в этом случае. 
+Поэтому рекомендуется предоставлять отключённый disabled-вариант 
+выбора с пустым значением value, как показано в примере ниже.
+     -->
+    <div id="app-11">
+        <select v-model="selected">
+            <option disabled value="">Выберите один из вариантов</option>
+            <option>А</option>
+            <option>Б</option>
+            <option>В</option>
+        </select>
+        <span>Выбрано: {{ selected }}</span>
+    </div>
+    <!-- Выбор нескольких вариантов из списка (с привязкой к массиву): добовляем атрибут multiple-->
+    <div id="app-12">
+        <select v-model="selected" multiple>
+            <option>А</option>
+            <option>Б</option>
+            <option>В</option>
+        </select>
+        <span>Выбрано: {{ selected }}</span>
+    </div>
+    <div id="app-13">
+        <select v-model="selected">
+            <option v-for="option in options" v-bind:value="option.value">
+              {{ option.text }}
+            </option>
+          </select>
+          <span>Выбрано: {{ selected }}</span>
+    </div>
+    <!-- модификаторы v-model 
+.lazy
+По умолчанию v-model синхронизирует ввод с данными по событию input 
+(за исключением вышеупомянутых событий IME). Можно указать модификатор 
+lazy, чтобы использовать для синхронизации после события change:
+
+синхронизируется по событию "change", а не "input"
+<input v-model.lazy="msg">
+
+.number
+Для автоматического приведения введённого пользователем к Number
+, добавьте модификатор number:
+
+<input v-model.number="age" type="number">
+Зачастую это полезно, потому что даже при указанном атрибуте type="number" 
+значением поля ввода всегда будет строка. Если значение не удаётся 
+распарсить с помощью parseFloat(), то возвращается оригинальное значение.
+
+.trim
+Если необходимо, чтобы автоматически обрезались пробелы 
+в начале и в конце строки, используйте модификатор trim 
+для полей ввода, обрабатываемых через v-model:
+
+<input v-model.trim="msg">
+    -->
+    <!-- модификаторы событии
+
+При использовании модификаторов порядок имеет значение, 
+потому что код генерируется в том же порядке. Поэтому 
+v-on:click.prevent.self будет предотвращать все клики, 
+в то время как v-on:click.self.prevent будет предотвращать 
+клики только на самом элементе.
+
+Очень часто возникает необходимость вызывать event.preventDefault() 
+или event.stopPropagation() в обработчике события. Несмотря на то, 
+что это легко сделать внутри метода, лучше сохранять чистоту логики 
+и абстрагироваться от деталей реализации событий DOM.
+
+Для решения этой задачи Vue предоставляет модификаторы событий для v-on
+, которые указываются как постфиксы и отделяются точкой:
+
+.stop
+.prevent
+.capture
+.self
+.once
+.passive
+событие click не будет всплывать дальше 
+<a v-on:click.stop="doThis"></a>
+
+событие submit больше не будет перезагружать страницу
+<form v-on:submit.prevent="onSubmit"></form>  
+и так далее
+
+Модификаторы клавиш
+
+.enter
+.tab
+.delete (ловит как «Delete», так и «Backspace»)
+.esc
+.space
+.up
+.down
+.left
+.right
+
+Можно также определить пользовательские псевдонимы 
+клавиш через глобальную опцию config.keyCodes:
+
+// позволит использовать `v-on:keyup.f1`
+Vue.config.keyCodes.f1 = 112
+
+При обработке событий клавиатуры нас часто интересуют конкретные клавиши. 
+Vue позволяет использовать модификаторы клавиш при использовании v-on для 
+отслеживания событий от клавиатуры:
+
+вызвать `vm.submit()` только если `key` будет `Enter`
+<input v-on:keyup.enter="submit">
+
+Можно также использовать любые допустимые имена клавиш, 
+предоставляемые через KeyboardEvent.key в качестве модификаторов, 
+именуя их в kebab-case.
+
+<input v-on:keyup.page-down="onPageDown">
+В примере выше обработчик будет вызываться только если $event.key будет 'PageDown'.
+
+
+Можно использовать следующие модификаторы для отслеживания 
+событий мыши или клавиатуры с зажатой клавишей-модификатором:
+
+.ctrl
+.alt
+.shift
+.meta
+Примечание: На клавиатурах Apple клавиша meta отмечена знаком ⌘. 
+На клавиатурах Windows клавиша meta отмечена знаком ⊞. На клавиатурах 
+Sun Microsystems клавиша meta отмечена символом ромба ◆. На некоторых 
+клавиатурах, особенно MIT и Lisp machine и их преемников, таких как Knight 
+или space-cadet клавиатуры, клавиша meta отмечена словом «META». На клавиатурах 
+Symbolics, клавиша meta отмечена словом «META» или «Meta».
+
+Например:
+
+Alt + C 
+<input v-on:keyup.alt.67="clear">
+
+Ctrl + Click
+<div v-on:click.ctrl="doSomething">Сделать что-нибудь</div>
+
+Обратите внимание, клавиши-модификаторы отличаются от обычных клавиш 
+и при отслеживании событий keyup они должны быть нажаты, когда событие 
+генерируется. Другими словами, keyup.ctrl сработает только тогда, когда 
+вы отпустите клавишу, удерживая нажатой ctrl. Это не сработает, если вы 
+отпустите только клавишу ctrl. Если вы хотите такое поведение, используйте 
+keyCode для ctrl вместо keyup.17.
+
+Модификатор .exact позволяет контролировать точную комбинацию 
+системных модификаторов, необходимых для запуска события.
+
+сработает, даже если Alt или Shift также нажаты 
+<button v-on:click.ctrl="onClick">A</button>
+
+сработает, только когда нажат Ctrl и не нажаты никакие другие клавиши
+<button v-on:click.ctrl.exact="onCtrlClick">A</button>
+
+сработает, только когда не нажаты никакие системные модификаторы 
+<button v-on:click.exact="onClick">A</button>
+
+Модификаторы клавиш мыши
+Добавлено в версии 2.2.0+
+
+.left
+.right
+.middle
+
+Эти модификаторы ограничивают обработчик события 
+только вызовами определённой кнопкой мыши.
+    -->
+    <!-- v-for для компонентов
+        Однако, в компонент никакие данные не передаются автоматически, 
+        поскольку у компонентов изолированные области видимости. Для 
+        передачи итерируемых данных в компонент необходимо явно использовать входные параметры:
+        <my-component
+            v-for="(item, index) in items"
+            v-bind:item="item"
+            v-bind:index="index"
+            v-bind:key="item.id"
+        ></my-component> 
+-->
+    <!-- Синтаксис двойных фигурных скобок не работает с HTML-атрибутами. Используйте вместо него директиву v-bind: -->
+    <!--  нужно использовать <div v-bind:id="dynamicId"></div> в место -->
+    <!-- <div {{dynamicId}}></div> для атрибутов-->
+    <!-- При использовании с булевыми атрибутами (когда их наличие уже означает true)
+         v-bind работает немного иначе. В этом примере:
+            <button v-bind:disabled="isButtonDisabled">Кнопка</button>
+        Если значением isButtonDisabled будет null, undefined или false, 
+        то атрибут disabled не добавится в элемент <button>. -->
+    <!-- Пока мы связывали данные со свойствами в шаблонах только по простым ключам.
+         Но на самом деле при связывании данных Vue поддерживает всю мощь выражений JavaScript:
+
+    {{ number + 1 }}
+
+    {{ ok ? 'YES' : 'NO' }}
+
+    {{ message.split('').reverse().join('') }}
+
+    <div v-bind:id="'list-' + id"></div>
+    Выражения будут вычислены как JavaScript-код в области видимости соответствующего экземпляра Vue.
+     Единственное ограничение в том, что допускается лишь одно выражение, поэтому код ниже НЕ сработает:
+
+    это не вычисляемое выражение, а определение переменной: 
+    {{ var a = 1 }}
+
+    операторы условий не сработают, используйте условные операторы в тернарной форме: 
+    {{ if (ok) { return message } }}
+    Выражения в шаблонах выполняются в режиме «песочницы», поэтому доступ есть только 
+    к ограниченному списку глобальных объектов, таким как Math и Date. 
+    Не пытайтесь получить доступ к пользовательским глобальным объектам
+    внутри выражений используемых в шаблонах.-->
+    <!-- JavaScript-выражение в аргументе директивы
+    Начиная с версии 2.6.0, можно использовать JavaScript-выражение 
+    в аргументе директивы, заключив его в квадратные скобки:
+
+    <a v-bind:[attributeName]="url"> ... </a>
+    <a v-on:[eventName]="doSomething"> ... </a>
+     -->
+    <!-- Ограничения
+    Ограничения значений динамического аргумента
+    Ожидается, что динамические аргументы в результате будут строкой,
+    за исключением null. Специальное значение null можно 
+    использовать для явного удаления привязки. Любые другие
+    нестроковые значения будут вызывать предупреждения.
+
+    Ограничения динамического выражения
+    Для выражений динамических аргументов есть синтаксические ограничения, 
+    поскольку некоторые символы, такие как пробелы и кавычки, 
+    являются недопустимыми внутри имён атрибутов HTML. Например:
+
+    Подобное вызовет предупреждение компилятора. 
+    <a v-bind:['foo' + bar]="value"> ... </a>
+    Обойти это ограничение можно использованием выражения 
+    без пробелов или кавычек, или заменой комплексного 
+    выражения на вычисляемое свойство.
+
+    При использовании шаблонов в DOM (шаблонов, написанных непосредственно в HTML-файле), 
+    следует избегать именования ключей заглавными буквами, поскольку
+    браузеры будут приводить имена атрибутов к строчным:
+
+    В шаблонах DOM это преобразуется браузером в v-bind:[someattr].
+    Если в экземпляре не будет свойства "someattr", такой код не заработает.
+
+    <a v-bind:[someAttr]="value"> ... </a>
+-->
+    <!--Модификаторы
+    Модификаторы — особые постфиксы, добавляемые после точки,
+    обозначающие, что директива должна быть связана каким-то 
+    определённым образом. Например, модификатор .prevent 
+    говорит директиве v-on вызвать event.preventDefault() 
+    при обработке произошедшего события:
+
+    <form v-on:submit.prevent="onSubmit"> ... </form>
+    -->
+    <!-- сокрощения
+    Сокращение v-bind
+    полный синтаксис
+    <a v-bind:href="url"> ... </a>
+
+    сокращённая запись
+    <a :href="url"> ... </a>
+
+    сокращённая запись с динамическим именем аргумента (2.6.0+)
+    <a :[key]="url"> ... </a>
+    Сокращение v-on
+    полный синтаксис
+    <a v-on:click="doSomething"> ... </a>
+
+    сокращённая запись
+    <a @click="doSomething"> ... </a>
+
+    сокращённая запись с динамическим именем события (2.6.0+)
+    <a @[event]="doSomething"> ... </a>
+     -->
+    <!-- class and style
+        Vue предоставляет дополнительные возможности директивы
+        v-bind для работы с class и style. Эти атрибуты кроме
+        строковых значений могут принимать массивы или объекты.
+
+        Использование объектов
+        Для динамической установки или удаления CSS-классов
+        можно передавать объект в директиву v-bind:class:
+
+        <div v-bind:class="{ active: isActive }"></div>
+        Запись выше означает, что наличие класса active 
+        будет определяться истинностью параметра isActive.
+
+        Используемый объект необязательно указывать прямо в шаблоне:
+
+        <div v-bind:class="classObject"></div>
+        data: {
+        classObject: {
+            active: true,
+            'text-danger': false
+        }
+        }
+
+        Можно также использовать и вычисляемые свойства, которые 
+        возвращают объект — это очень распространённый и мощный приём:
+
+        <div v-bind:class="classObject"></div>
+        data: {
+        isActive: true,
+        error: null
+        },
+        computed: {
+        classObject: function () {
+            return {
+            active: this.isActive && !this.error,
+            'text-danger': this.error && this.error.type === 'fatal'
+            }
+        }
+        }
+
+        В v-bind:class можно передать и массив:
+
+        <div v-bind:class="[activeClass, errorClass]"></div>
+        data: {
+        activeClass: 'active',
+        errorClass: 'text-danger'
+        }
+        В результате получим:
+
+        <div class="active text-danger"></div>
+        Для переключения классов в массиве, в зависимости 
+        от некоторого условия, можно использовать условный оператор в тернарной форме:
+
+        <div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
+        В этом случае errorClass будет применён к элементу всегда,
+        а activeClass — только в случае истинности isActive.
+
+        Однако, такая запись становится слегка громоздкой, 
+        особенно если есть несколько классов, задаваемых по условию. 
+        Но можно использовать и смешанный синтаксис:
+
+        <div v-bind:class="[{ active: isActive }, errorClass]"></div>
+
+        При использовании атрибута class на пользовательском компоненте,
+        классы будут добавлены к его корневому элементу. Собственные 
+        классы элемента при этом не будут потеряны.
+
+        То же самое справедливо для связывания классов с данными:
+
+        <my-component v-bind:class="{ active: isActive }"></my-component>
+        Если isActive истинно, результирующий HTML будет:
+
+        <p class="foo bar active">Привет</p>
+
+STYLE---------------------------------------------------------
+
+        бъектная запись для v-bind:style выглядит почти как CSS, 
+        хотя, на самом деле, это объект JavaScript. Для указания 
+        свойств CSS можно применять как camelCase, так и kebab-case 
+        (не забывайте про кавычки при использовании kebab-case):
+
+        <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+        data: {
+        activeColor: 'red',
+        fontSize: 30
+        }
+        Можно выносить объект стилей из шаблона, чтобы сделать код чище:
+
+        <div v-bind:style="styleObject"></div>
+        data: {
+        styleObject: {
+            color: 'red',
+            fontSize: '13px'
+        }
+        }
+        Можно использовать и вычисляемые свойства, возвращающие объекты стилей.
+
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
