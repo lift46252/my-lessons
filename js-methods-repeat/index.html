@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>methods</title>
+</head>
+<body>
+
+
+
+    <script>
+        let arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
+        let obj = {
+            name:{
+                firstName:"alex",
+                lastName:"lefter"
+            },
+            arr:[],
+            color:"red",
+            age:16,
+            sleep:false,
+        }
+        arr.push(26)
+        console.log("push",arr);
+        arr.pop()
+        console.log("pop",arr);
+        arr.shift()
+        console.log("shift",arr);
+        arr.unshift(0)
+        console.log("unshift",arr);
+        arr.splice(12,5,["a","b","c","d","e"])
+        console.log("splice",arr);
+        obj.arr = arr.slice(12,18)
+        console.log("slice",obj.arr,"arr",arr);
+        let arr2 = arr.concat(["z","y","w","x"])
+        console.log("concat",arr2,"Arr",arr);
+        console.log('index:',arr.indexOf(23));
+        console.log('lastindex:',arr.lastIndexOf(23));
+        console.log('includes:',arr.includes(23));
+        console.log("find",arr.find(item => arr.indexOf(item) == 18));
+        console.log("filter",arr.filter(item => item >= 10 && item % 2 == 0));
+        let arr3 = arr.map(item =>{return item**2})
+        console.log("map",arr3);
+        arr[12].reverse()
+        console.log(arr[12]);
+        arr[12].sort()
+        console.log(arr[12]);
+        console.log(obj.name.firstName.split(""));
+        let str = arr.join('')
+        console.log(str);
+    </script>
+</body>
+</html>
